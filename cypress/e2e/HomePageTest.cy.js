@@ -4,7 +4,7 @@ describe("Landing Page Tests", () => {
   const ERROR_MESSAGE = "Please complete this required field.";
 
   beforeEach(() => {
-    cy.visit("/", { timeout: 100000 });
+    cy.visit("/", { timeout: 30000 });
   });
 
   it("should display the Qubika logo and Contact Us button", () => {
@@ -15,6 +15,7 @@ describe("Landing Page Tests", () => {
 
   it("should display the contact form when clicking 'Contact Us'", () => {
     LandingPage.getContactUsButton().click();
+    cy.url().should("eq", "https://qubika.com/");
     LandingPage.getModal().should("have.class", "show").and("be.visible");
     LandingPage.getNameField().should("be.visible");
     LandingPage.getEmailField().should("be.visible");

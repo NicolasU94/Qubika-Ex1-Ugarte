@@ -5,12 +5,12 @@ module.exports = defineConfig({
     baseUrl: "https://qubika.com",
     viewportWidth: 1280,
     viewportHeight: 720,
-    defaultCommandTimeout: 8000,
+    defaultCommandTimeout: 12000,
     retries: {
-      runMode: 2,
+      runMode: 1,
       openMode: 0,
     },
-    video: false,
+    video: true,
     screenshotOnRunFailure: false,
 
     setupNodeEvents(on, config) {

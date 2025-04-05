@@ -1,51 +1,136 @@
-# Qubika-Ex1-Ugarte
+# 📘 Qubika-Ex1-Ugarte
 
-Qubika QA Automation challenge Exercise 1
+## Qubika QA Automation Challenge – Exercise 1
 
-Excercise Guidelines and Steps:
+**Framework:** Cypress.js  
+**Author:** Nicolas Ugarte
 
-Test Steps
-1️⃣ Navigate to the Qubika Website → https://qubika.com
+---
 
-2️⃣ Validate the website is displayed correctly:
+## 📝 Challenge Requirements
 
-✅ Verify the URL is correct
+> **Automate the following UI-only flow on the Qubika website (https://www.qubika.com).**
 
-✅ Ensure the Qubika logo is visible
+1. ✅ Navigate to Qubika Website.
+2. ✅ Validate that the website is displayed correctly by checking:
+   - The URL
+   - The Qubika logo
+3. ✅ Click the **Contact Us** button.
+4. ✅ Validate the contact form is displayed, including:
+   - Name field is displayed
+   - Email field is displayed
+   - Submit button is displayed
+5. ✅ Click **Submit** without filling any fields.
+6. ✅ Validate that all mandatory fields show an error message.
+7. ✅ Enter `"Test name"` in the **Name** field.
+8. ✅ Validate all fields show errors **except** the Name field.
+9. ✅ Close the **Contact Us** form.
+10. ✅ Validate that the form is no longer visible.
+11. ✅ Reopen the **Contact Us** form.
+12. ✅ Validate the form is displayed with previous state: Name field filled, others show error.
 
-3️⃣ Click the ‘Contact Us’ button
+> ⚠️ **Note:** Do not actually submit any information through the form. This is a UI-only test.
 
-4️⃣ Validate that the contact form is displayed:
+---
 
-✅ The Name field is visible
+## 🧪 Qubika Website Cypress Test Suite
 
-✅ The Email field is visible
+This project contains Cypress E2E automation for the Website.
 
-✅ The Submit button is visible
+It uses **Cypress.js** because it provides modern, developer-friendly tooling with strong support for **both UI and API automation** in the same test flow. This made it ideal for the hybrid requirements of Exercise 1.
 
-5️⃣ Click the ‘Submit’ button without filling any fields
+---
 
-6️⃣ Validate that all mandatory fields display an error message
+## 🚀 Setup Instructions
 
-7️⃣ Enter ‘Test name’ into the Name field
+### 1. Clone the Repository
 
-8️⃣ Verify that all mandatory fields still show an error message, except for the Name field
+```bash
+git clone https://github.com/NicolasU94/Qubika-Ex1-Ugarte.git
+cd Qubika-Ex1-Ugarte
+```
 
-9️⃣ Close the ‘Contact Us’ form
+### 2. Install Dependencies
 
-🔟 Ensure that the form is no longer displayed
+```bash
+npm install
+```
 
-1️⃣1️⃣ Reopen the ‘Contact Us’ form
+## 🧪 3. Running Tests
 
-1️⃣2️⃣ Verify that the form retains the previous state:
+### Run Cypress in interactive mode:
 
-✅ The Name field contains "Test name"
+```bash
+npx cypress open
+```
 
-✅ Other fields still display error messages
+### Run Cypress in headless mode (CI-friendly):
 
-💡 Notes
-The test will be implemented using Cypress
+```bash
+npx cypress run
+```
 
-Selectors will be based on classes, IDs, or attributes (since test-data-id is unavailable)
+## 📊 Test Execution Report
 
-A Page Object Model (POM) structure will be used for maintainability
+```bash
+Running:  HomePageTest.cy.js                                                              (1 of 1)
+
+  Landing Page Tests
+
+    ✓ should display the Qubika logo and Contact Us button (7066ms)
+    ✓ should display the contact form when clicking 'Contact Us' (1463ms)
+    ✓ should show error messages for all required fields when submitting an empty form (2359ms)
+    ✓ should input a firstName and validate error messages before and after closing and re-opening the form (2380ms)
+
+  4 passing (14s)
+
+  (Results)
+  ┌──────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                              │
+  │ Passing:      4                                                              │
+  │ Failing:      0                                                              │
+  │ Pending:      0                                                              │
+  │ Skipped:      0                                                              │
+  │ Screenshots:  0                                                              │
+  │ Video:        true                                                           │
+  │ Duration:     13 seconds                                                     │
+  │ Spec Ran:     HomePageTest.cy.js                                             │
+  └──────────────────────────────────────────────────────────────────────────────┘
+
+====================================================================================================
+
+  (Run Finished)
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped
+  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  HomePageTest.cy.js                       00:13        4        4        -        -        - │
+  └──────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:13        4        4        -        -        -
+```
+
+Additionally Cypress automatically captures screenshots and videos when tests fail or when running in headless mode.
+
+These can be found in the following folders after running tests:
+
+📸 cypress/screenshots/
+
+🎥 cypress/videos/
+
+## 📁 Project Structure
+
+```bash
+Qubika-Ex1-Ugarte/
+├── cypress/
+│   ├── e2e/                       # Test spec files
+│   │   └── HomePageTest.cy.js     # E2E test for Qubika.com homepage and form
+│   ├── support/
+│   │   └── HomePage.js            # Page Object Model for Qubika.com website
+│   └── commands.js                # (Optional) Custom Cypress commands
+├── cypress.config.js              # Cypress configuration file
+├── package.json                   # Project metadata and test scripts
+└── README.md                      # Documentation and setup instructions
+```
+
+📄 Notes
+This suite focuses solely on UI validation, as required by Exercise 1.
+Ensure the Qubika website (https://www.qubika.com) is accessible before running tests.
